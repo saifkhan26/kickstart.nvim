@@ -273,6 +273,20 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Harpoon Configure
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<A-a>", mark.add_file)
+vim.keymap.set("n", "<leader><leader>", ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<A-u>", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<A-i>", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<A-o>", function() ui.nav_file(3) end)
+vim.keymap.set("n", "<A-p>", function() ui.nav_file(4) end)
+vim.keymap.set("n", "<A-.>", function() ui.nav_next() end)
+vim.keymap.set("n", "<A-,>", function() ui.nav_prev() end)
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
