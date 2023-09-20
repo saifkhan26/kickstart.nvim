@@ -278,7 +278,7 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<A-a>", mark.add_file)
-vim.keymap.set("n", "<leader><leader>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<A-;>", ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<A-u>", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<A-i>", function() ui.nav_file(2) end)
@@ -476,11 +476,31 @@ local servers = {
   },
 }
 
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- Setup neovim lua configuration
 require('neodev').setup()
 
+local lspconfig = require('lspconfig')
+local configs = require('lspconfig/configs')
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "css", "html", "javascript", "javascriptreact", "less", "sass", "scss", "typescriptreact" },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
+
+
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
