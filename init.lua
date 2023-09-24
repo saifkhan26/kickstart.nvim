@@ -333,7 +333,9 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- netrw mapping
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = 'Open [E]xplorer' })
+vim.keymap.set("n", "<leader>e", function()
+  vim.cmd(':Explore')
+end, { desc = 'Open [E]xplorer' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
