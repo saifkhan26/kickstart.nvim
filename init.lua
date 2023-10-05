@@ -195,6 +195,7 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
+    event = { "BufReadPre", "BufNewFile" },
     build = ':TSUpdate',
   },
 
