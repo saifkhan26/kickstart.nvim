@@ -288,6 +288,15 @@ vim.keymap.set("n", "<A-p>", function() ui.nav_file(4) end)
 vim.keymap.set("n", "<A-.>", function() ui.nav_next() end)
 vim.keymap.set("n", "<A-,>", function() ui.nav_prev() end)
 
+-- mini files Configuration
+require('mini.files').setup()
+
+-- netrw mapping
+vim.keymap.set("n", "<leader>e", function()
+  vim.cmd(':lua MiniFiles.open()')
+end, { desc = 'Open [E]xplorer' })
+
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -333,10 +342,6 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
--- netrw mapping
-vim.keymap.set("n", "<leader>e", function()
-  vim.cmd(':Explore')
-end, { desc = 'Open [E]xplorer' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
