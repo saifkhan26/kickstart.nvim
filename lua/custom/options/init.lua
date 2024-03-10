@@ -68,6 +68,9 @@ end, { desc = 'Open [E]xplorer' })
 require('oil').setup()
 vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
 
+-- Undo Tree
+vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
+
 --    },
 --  },
 

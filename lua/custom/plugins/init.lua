@@ -35,4 +35,7 @@ return {
   {
     'uga-rosa/ccc.nvim',
   },
+  {
+    'mbbill/undotree',
+  },
 }
