@@ -38,4 +38,5 @@ return {
   {
     'mbbill/undotree',
   },
+  { 'akinsho/toggleterm.nvim', version = '*', config = true },
 }

@@ -71,6 +71,16 @@ vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory
 -- Undo Tree
 vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
 
+require('toggleterm').setup {
+  open_mapping = [[<c-\>]],
+  direction = 'float',
+  close_on_exit = true, -- close the terminal window when the process exits
+  -- Change the default shell. Can be a string or a function returning a string
+  shell = vim.o.shell,
+  auto_scroll = true, -- automatically scroll to the bottom on terminal output
+  -- This field is only relevant if direction is set to 'float'
+}
+
 --    },
 --  },
 
