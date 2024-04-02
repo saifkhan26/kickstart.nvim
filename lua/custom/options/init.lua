@@ -1,7 +1,7 @@
 require('nvim-treesitter.install').prefer_git = true
 
 -- Custom settings
-vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme 'lush_theme'
 vim.g.netrw_banner = 0
 vim.g.netrw_altv = 1
 vim.g.netrw_liststyle = 3
@@ -66,7 +66,7 @@ vim.keymap.set('n', '<leader>e', function()
 end, { desc = 'Open [E]xplorer' })
 
 require('oil').setup()
-vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 -- Undo Tree
 vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)

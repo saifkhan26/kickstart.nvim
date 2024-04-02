@@ -39,4 +39,6 @@ return {
     'mbbill/undotree',
   },
   { 'akinsho/toggleterm.nvim', version = '*', config = true },
+  { 'rktjmp/lush.nvim' },
+  { dir = 'C:/Users/MSK/AppData/Local/nvim/lush_theme', lazy = true },
 }
