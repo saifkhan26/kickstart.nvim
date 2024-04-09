@@ -4,7 +4,7 @@
 local lush = require 'lush'
 
 local norm_fg = '#D4D4D4'
-local norm_bg = '#111111'
+local norm_bg = ''
 
 local dark_red = '#D16969'
 local orange = '#f9ae28'
@@ -51,19 +51,19 @@ local theme = lush(function(injected_functions)
 
     TabBorder { fg = black2 }, -- tab.border, border to separate tabs from each other
     FloatBorder { fg = float_border_fg },
-    SelectionHighlightBackground { bg = '#333a40' },
+    SelectionHighlightBackground { bg = '' },
     LightBulb { fg = '#ffcc00' },
     CodeLens { fg = '#999999' },
     GutterGitAdded { fg = '#487e02' },
     GutterGitDeleted { fg = '#f14c4c' },
     GutterGitModified { fg = '#1b81a8' },
-    Breadcrumb { fg = '#a9a9a9', bg = norm_bg },
-    ScrollbarSlider { bg = '#424242' },
+    Breadcrumb { fg = '#a9a9a9', bg = '' },
+    ScrollbarSlider { bg = '' },
     PeekViewBorder { fg = '#3794ff' },
-    PeekViewNormal { bg = '#001f33' },
+    PeekViewNormal { bg = '' },
     PeekViewTitle { fg = white }, -- peekViewTitleLabel.foreground
-    PeekViewCursorLine { bg = '#002f4e' },
-    PeekViewMatchHighlight { bg = '#996214' }, -- peekViewEditor.matchHighlightBackground
+    PeekViewCursorLine { bg = '' },
+    PeekViewMatchHighlight { bg = '' }, -- peekViewEditor.matchHighlightBackground
     GhostText { fg = '#6b6b6b' },
     Icon { fg = '#c5c5c5' },
     Description { fg = '#989898' }, -- descriptionForeground
@@ -75,29 +75,29 @@ local theme = lush(function(injected_functions)
     -- so the color will be 9cdcfeaa. Converting hexa to hex gets 729db4.
     UnnecessaryCode { fg = '#729db4' },
     -- Git diff
-    DiffTextAdded { bg = '#386229' },
-    DiffTextDeleted { bg = '#781212' },
-    DiffTextChanged { bg = '#0000ff' },
-    DiffLineAdded { bg = '#373d29' },
-    DiffLineDeleted { bg = '#4b1818' },
-    DiffLineChanged { bg = '#0e2f44' },
+    DiffTextAdded { bg = '' },
+    DiffTextDeleted { bg = '' },
+    DiffTextChanged { bg = '' },
+    DiffLineAdded { bg = '' },
+    DiffLineDeleted { bg = '' },
+    DiffLineChanged { bg = '' },
     -- Quickfix list (can be used to define qf syntax, e.g.,
     -- ~/.config/nvim/syntax/qf.vim)
     QfFileName { fg = white },
-    QfSelection { bg = '#3a3d41' }, -- terminal.inactiveSelectionBackground
+    QfSelection { bg = '' }, -- terminal.inactiveSelectionBackground
     QfText { fg = '#bbbbbb' }, -- normal text in quickfix list
     -- Inline hints
-    InlayHint { fg = '#969696', bg = '#232323' }, -- editorInlayHint.foreground/background
+    InlayHint { fg = '#969696', bg = '' }, -- editorInlayHint.foreground/background
     InlayHintType { InlayHint }, -- editorInlayHint.typeBackground/typeForeground
 
     --
     -- Editor
     --
-    CursorLine { bg = black3 },
-    CursorColumn { bg = black3 },
-    ColorColumn { bg = black2 }, -- #5a5a5a in VSCode (editorRuler.foreground) it's too bright
+    CursorLine { bg = '' },
+    CursorColumn { bg = '' },
+    ColorColumn { bg = '' }, -- #5a5a5a in VSCode (editorRuler.foreground) it's too bright
     Conceal { fg = gray2 },
-    Cursor { fg = gray, bg = '#aeafad' },
+    Cursor { fg = gray, bg = '' },
     -- lCursor { },
     -- CursorIM { },
     Directory { fg = dark_blue },
@@ -113,40 +113,40 @@ local theme = lush(function(injected_functions)
     VirtSplit { WinSeparator }, -- deprecated and use WinSeparator instead
     LineNr { fg = gray2 },
     CursorLineNr { fg = '#c6c6c6' },
-    Folded { bg = folded_blue },
+    Folded { bg = '' },
     CursorLineFold { CursorLineNr },
     FoldColumn { LineNr }, -- #c5c5c5 in VSCode (editorGutter.foldingControlForeground) and it's too bright
-    SignColumn { bg = norm_bg },
-    IncSearch { bg = '#515c6a' },
+    SignColumn { bg = '' },
+    IncSearch { bg = '' },
     -- Substitute { },
-    MatchParen { bg = gray, gui = 'bold, underline' },
+    MatchParen { bg = '', gui = 'bold, underline' },
     ModeMsg { fg = norm_fg },
     MsgArea { fg = norm_fg },
     -- MsgSeparator { },
     MoreMsg { fg = norm_fg },
     NonText { fg = gray2 },
-    Normal { fg = norm_fg, bg = norm_bg },
+    Normal { fg = norm_fg, bg = '' },
     -- NormalNC { },
-    Pmenu { fg = norm_fg, bg = black2 },
-    PmenuSel { fg = white, bg = selection_blue },
-    PmenuSbar { bg = black2 },
-    PmenuThumb { bg = '#474747' },
+    Pmenu { fg = norm_fg, bg = '' },
+    PmenuSel { fg = white, bg = '' },
+    PmenuSbar { bg = '' },
+    PmenuThumb { bg = '' },
     NormalFloat { Pmenu },
     Question { fg = dark_blue },
     QuickFixLine { QfSelection },
-    Search { bg = '#613214' },
+    Search { bg = '' },
     SpecialKey { NonText },
     SpellBad { gui = 'undercurl', sp = error_red },
     SpellCap { gui = 'undercurl', sp = warn_yellow },
     SpellLocal { gui = 'undercurl', sp = info_blue },
     SpellRare { gui = 'undercurl', sp = info_blue },
-    StatusLine { bg = black2 },
-    StatusLineNC { fg = gray, bg = black2 },
-    TabLine { fg = '#8f8f8f', bg = black },
-    TabLineFill { fg = 'NONE', bg = black2 },
-    TabLineSel { fg = white, bg = norm_bg },
+    StatusLine { bg = '' },
+    StatusLineNC { fg = gray, bg = '' },
+    TabLine { fg = '#8f8f8f', bg = '' },
+    TabLineFill { fg = 'NONE', bg = '' },
+    TabLineSel { fg = white, bg = '' },
     Title { fg = dark_blue, gui = 'bold' },
-    Visual { bg = '#264F78' },
+    Visual { bg = selection_blue },
     -- VisualNOS { },
     WarningMsg { fg = warn_yellow },
     Whitespace { fg = '#3e3e3d' },
@@ -198,7 +198,7 @@ local theme = lush(function(injected_functions)
     Underlined { gui = 'underline' },
     -- Ignore { },
     Error { fg = error_red },
-    Todo { fg = norm_bg, bg = yellow_orange, gui = 'bold' },
+    Todo { fg = norm_bg, bg = '', gui = 'bold' },
 
     --
     -- diff
@@ -228,11 +228,11 @@ local theme = lush(function(injected_functions)
     DiagnosticInfo { fg = info_blue },
     DiagnosticHint { fg = hint_gray },
     DiagnosticOk { fg = ok_green },
-    DiagnosticVirtualTextError { DiagnosticError, bg = '#332323' },
-    DiagnosticVirtualTextWarn { DiagnosticWarn, bg = '#2f2c1b' },
-    DiagnosticVirtualTextInfo { DiagnosticInfo, bg = '#212a35' },
-    DiagnosticVirtualTextHint { DiagnosticHint, bg = black },
-    DiagnosticVirtualTextOk { DiagnosticOk, bg = '#233323' },
+    DiagnosticVirtualTextError { DiagnosticError, bg = '' },
+    DiagnosticVirtualTextWarn { DiagnosticWarn, bg = '' },
+    DiagnosticVirtualTextInfo { DiagnosticInfo, bg = '' },
+    DiagnosticVirtualTextHint { DiagnosticHint, bg = '' },
+    DiagnosticVirtualTextOk { DiagnosticOk, bg = '' },
     DiagnosticUnderlineError { gui = 'undercurl', sp = error_red },
     DiagnosticUnderlineWarn { gui = 'undercurl', sp = warn_yellow },
     DiagnosticUnderlineInfo { gui = 'undercurl', sp = info_blue },
@@ -494,7 +494,7 @@ local theme = lush(function(injected_functions)
     CmpItemKindTypeParameter { CmpItemKindText },
     -- Predefined for the winhighlight config of cmp float window
     SuggestWidgetBorder { FloatBorder },
-    SuggestWidgetSelect { bg = selection_blue },
+    SuggestWidgetSelect { bg = '' },
 
     --
     -- Aerial
@@ -626,10 +626,10 @@ local theme = lush(function(injected_functions)
     UfoPreviewNormal { PeekViewNormal },
     UfoPreviewCursorLine { PeekViewCursorLine },
     UfoFoldedFg { fg = norm_fg },
-    UfoFoldedBg { bg = folded_blue },
-    UfoCursorFoldedLine { bg = '#2F3C48', gui = 'bold, italic' },
+    UfoFoldedBg { bg = '' },
+    UfoCursorFoldedLine { bg = '', gui = 'bold, italic' },
     UfoPreviewSbar { PeekViewNormal },
-    UfoPreviewThumb { bg = '#394a4b' },
+    UfoPreviewThumb { bg = '' },
     UfoFoldedEllipsis { fg = '#989ca0' },
 
     --
@@ -655,7 +655,7 @@ local theme = lush(function(injected_functions)
     TExtra { TabLine },
     TSpecial { TabLine },
     TFill { TabLineFill },
-    TCorner { fg = white, bg = black2 },
+    TCorner { fg = white, bg = '' },
     TNumSel { TSelect },
     TNum { TabLine },
     TSelectMod { TSelect },
@@ -686,7 +686,7 @@ local theme = lush(function(injected_functions)
     --
     -- nvim-treesitter-context
     --
-    -- TreesitterContext { bg = black4 },
+    -- TreesitterContext { bg = "" },
     TreesitterContextLineNumber { fg = '#5d5d5d' }, -- 30% darker based on LineNr
     TreesitterContextBottom { gui = 'underline', sp = FloatBorder.fg },
 

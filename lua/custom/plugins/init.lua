@@ -13,7 +13,10 @@ return {
       },
     },
   },
-  { 'ThePrimeagen/harpoon' },
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+  },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',

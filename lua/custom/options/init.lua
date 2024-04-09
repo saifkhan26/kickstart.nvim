@@ -19,42 +19,51 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Harpoon Configure
-local mark = require 'harpoon.mark'
-local ui = require 'harpoon.ui'
+-- -- Harpoon Configure
+local harpoon = require 'harpoon'
 
-vim.keymap.set('n', '<A-a>', mark.add_file)
-vim.keymap.set('n', '<A-;>', ui.toggle_quick_menu)
+-- REQUIRED
+harpoon:setup()
+-- REQUIRED
+
+vim.keymap.set('n', '<A-a>', function()
+  harpoon:list():add()
+end)
+vim.keymap.set('n', '<A-;>', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
 
 vim.keymap.set('n', '<A-u>', function()
-  ui.nav_file(1)
+  harpoon:list():select(1)
 end)
 vim.keymap.set('n', '<A-i>', function()
-  ui.nav_file(2)
+  harpoon:list():select(2)
 end)
 vim.keymap.set('n', '<A-o>', function()
-  ui.nav_file(3)
+  harpoon:list():select(3)
 end)
 vim.keymap.set('n', '<A-p>', function()
-  ui.nav_file(4)
+  harpoon:list():select(4)
 end)
 vim.keymap.set('n', '<A-q>', function()
-  ui.nav_file(5)
+  harpoon:list():select(5)
 end)
 vim.keymap.set('n', '<A-w>', function()
-  ui.nav_file(6)
+  harpoon:list():select(6)
 end)
 vim.keymap.set('n', '<A-e>', function()
-  ui.nav_file(7)
+  harpoon:list():select(7)
 end)
 vim.keymap.set('n', '<A-r>', function()
-  ui.nav_file(8)
+  harpoon:list():select(8)
 end)
+
+-- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set('n', '<A-.>', function()
-  ui.nav_next()
+  harpoon:list():prev()
 end)
 vim.keymap.set('n', '<A-,>', function()
-  ui.nav_prev()
+  harpoon:list():next()
 end)
 
 -- mini files Configuration
@@ -70,6 +79,18 @@ vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 -- Undo Tree
 vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
+
+-- CCC config
+local ccc = require 'ccc'
+
+ccc.setup {
+  -- Your preferred settings
+  -- Example: enable highlighter
+  highlighter = {
+    auto_enable = true,
+    lsp = true,
+  },
+}
 
 require('toggleterm').setup {
   open_mapping = [[<c-\>]],
