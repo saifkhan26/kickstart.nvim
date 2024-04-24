@@ -218,3 +218,17 @@ choco install -y neovim git ripgrep wget fd unzip gzip mingw make
 ```
 
 Then, continue with the [Install Kickstart](#Install-Kickstart) step.
+
+### Wezterm Config 
+
+```
+config.color_scheme = "City Streets (terminal.sexy)"
+config.default_prog = { "pwsh" }
+config.default_cwd = "D:/"
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
+config.adjust_window_size_when_changing_font_size = false
+config.animation_fps = 10
+config.hide_tab_bar_if_only_one_tab = true
+config.win32_system_backdrop = "Acrylic"
+config.window_decorations = "RESIZE"
+```
