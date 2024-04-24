@@ -18,6 +18,9 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- Map Ctrl-j and Ctrl-k to cnext and cprev
+vim.keymap.set('n', '<C-j>', '<CMD>cnext<CR>', { silent = true })
+vim.keymap.set('n', '<C-k>', '<CMD>cprev<CR>', { silent = true })
 
 -- -- Harpoon Configure
 local harpoon = require 'harpoon'
@@ -92,15 +95,15 @@ ccc.setup {
   },
 }
 
-require('toggleterm').setup {
-  open_mapping = [[<c-\>]],
-  direction = 'float',
-  close_on_exit = true, -- close the terminal window when the process exits
-  -- Change the default shell. Can be a string or a function returning a string
-  shell = vim.o.shell,
-  auto_scroll = true, -- automatically scroll to the bottom on terminal output
-  -- This field is only relevant if direction is set to 'float'
-}
+-- require('toggleterm').setup {
+--   open_mapping = [[<c-\>]],
+--   direction = 'float',
+--   close_on_exit = true, -- close the terminal window when the process exits
+--   -- Change the default shell. Can be a string or a function returning a string
+--   shell = vim.o.shell,
+--   auto_scroll = true, -- automatically scroll to the bottom on terminal output
+--   -- This field is only relevant if direction is set to 'float'
+-- }
 
 --    },
 --  },
