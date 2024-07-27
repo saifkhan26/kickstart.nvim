@@ -19,8 +19,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- Map Ctrl-j and Ctrl-k to cnext and cprev
-vim.keymap.set('n', '<C-j>', '<CMD>cnext<CR>', { silent = true })
-vim.keymap.set('n', '<C-k>', '<CMD>cprev<CR>', { silent = true })
+vim.keymap.set('n', '<A-[>', '<CMD>cnext<CR>', { silent = true })
+vim.keymap.set('n', '<A-]>', '<CMD>cprev<CR>', { silent = true })
 
 -- -- Harpoon Configure
 local harpoon = require 'harpoon'
@@ -68,14 +68,6 @@ end)
 vim.keymap.set('n', '<A-,>', function()
   harpoon:list():next()
 end)
-
--- mini files Configuration
-require('mini.files').setup()
-
--- netrw mapping
-vim.keymap.set('n', '<leader>e', function()
-  vim.cmd ':lua MiniFiles.open()'
-end, { desc = 'Open [E]xplorer' })
 
 require('oil').setup()
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })

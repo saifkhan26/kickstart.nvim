@@ -1,10 +1,10 @@
 local lush = require 'lush'
 local hsl = lush.hsl
 
-local accent_color = hsl(200, 60, 30)
+local accent_color = hsl(276, 22, 50)
 local primary_color = hsl(0, 0, 90)
-local text_color = accent_color.li(60).de(90)
-local highlight_color = accent_color.da(80)
+local text_color = accent_color.li(30).de(30)
+local highlight_color = accent_color.da(40)
 local error_color = hsl(0, 100, 25)
 local success_color = hsl(110, 100, 25)
 local warning_color = hsl(60, 100, 25)
@@ -21,7 +21,7 @@ local theme = lush(function(injected_functions)
     Error { fg = error_color },
     Success { fg = success_color },
     Warn { fg = warning_color },
-    Highlight { bg = highlight_color, fg = text_color },
+    Highlight { fg = highlight_color.sa(60).li(50) },
     -- ColorColumn    { }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor         { }, -- Character under the cursor
@@ -45,7 +45,7 @@ local theme = lush(function(injected_functions)
     SignColumn { bg = '' }, -- Column where |signs| are displayed
     -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute { Highlight }, -- |:substitute| replacement text highlighting
-    LineNr { fg = primary_color }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr { Accent }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove { TextDark }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow { TextDark }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     -- CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -56,12 +56,12 @@ local theme = lush(function(injected_functions)
     -- MsgArea        { }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg        { }, -- |more-prompt|
-    -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- Normal         { }, -- Normal text
+    NonText { fg = black_color }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    Normal { bg = '' }, -- Normal text
     NormalFloat { bg = '' }, -- Normal text in floating windows.
-    -- FloatBorder    { }, -- Border of floating windows.
-    -- FloatTitle     { }, -- Title of floating windows.
-    -- NormalNC       { }, -- normal text in non-current windows
+    FloatBorder { bg = '' }, -- Border of floating windows.
+    FloatTitle { bg = '' }, -- Title of floating windows.
+    NormalNC { bg = '' }, -- normal text in non-current windows
     Pmenu { bg = '' }, -- Popup menu: Normal item.
     PmenuSel { bg = AccentDark.fg }, -- Popup menu: Selected item.
     -- PmenuKind      { }, -- Popup menu: Normal item "kind"
@@ -104,14 +104,14 @@ local theme = lush(function(injected_functions)
     Comment { TextDark }, -- Any comment
 
     Constant { fg = Text.fg.da(20) }, -- (*) Any constant
-    -- String         { }, --   A string constant: "this is a string"
+    String { fg = Text.fg.da(40) }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
     -- Boolean        { }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier { fg = primary_color }, -- (*) Any variable name
-    -- Function       { }, --   Function name (also: methods for classes)
+    Function { fg = accent_color.li(40) }, --   Function name (also: methods for classes)
 
     Statement { Text }, -- (*) Any statement
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
@@ -453,7 +453,7 @@ local theme = lush(function(injected_functions)
     --
     -- Telescope
     --
-    -- TelescopeBorder {  },
+    TelescopeBorder { fg = accent_color.da(60) },
     -- TelescopePromptBorder {  },
     -- TelescopeResultsBorder {  },
     -- TelescopePreviewBorder {  },
@@ -469,7 +469,6 @@ local theme = lush(function(injected_functions)
     --
     HarpoonBorder { Text },
     HarpoonWindow { Text },
-
     --
     -- fFHighlight
     --

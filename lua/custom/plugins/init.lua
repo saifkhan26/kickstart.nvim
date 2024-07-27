@@ -30,7 +30,6 @@ return {
       require('nvim-surround').setup {}
     end,
   },
-  { 'echasnovski/mini.files', version = '*' },
   {
     'stevearc/oil.nvim',
     opts = {},
